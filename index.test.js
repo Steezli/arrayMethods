@@ -39,4 +39,15 @@ describe('indexOf method', () => {
     const index = indexOf(numsArray, num => num > 5);
     expect(index).toEqual(-1);
   });
+
+  describe('reduce function', () => {
+    it('iterates through an array', () => {
+      const numsArray = [1, 2, 3, 4];
+      const callback = jest.fn();
+
+      reducer(numsArray, callback);
+
+      expect(callback).toHaveBeenCalledTimes(numsArray.length);
+    });
+  
 });

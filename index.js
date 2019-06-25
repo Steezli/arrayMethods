@@ -25,6 +25,12 @@ function indexOf(array, callback) {
   return -1;
 }
 
+function reducer(array, callback, initialValue) {
+  for(let i = 0; i < array.length; i++) {
+    callback();
+  }
+}
+
 const numsArray = [1, 2, 4, 6, 10];
 console.log(map(numsArray, number => number * number));
 console.log(filter(numsArray, num => num === 2));
