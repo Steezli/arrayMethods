@@ -1,5 +1,5 @@
 
-const { map, filter, indexOf } = require('./index');
+const { map, filter, indexOf, reducer } = require('./index');
 
 describe('array methods', () => {
   it('map and return newArray ', () => {
@@ -49,5 +49,32 @@ describe('indexOf method', () => {
 
       expect(callback).toHaveBeenCalledTimes(numsArray.length);
     });
-  
+
+    it('iterates through an array and gets result', () => {
+      const numsArray = [1, 2, 3, 4];
+
+      const sum = reducer(numsArray, (acc, item) => acc + item, 0);
+
+      expect(sum).toEqual(10);
+    });
+  });
+
+  describe('reduce function', () => {
+    it('iterates through an array', () => {
+      const numsArray = [1, 2, 3, 4];
+      const callback = jest.fn();
+
+      reducer(numsArray, callback);
+
+      expect(callback).toHaveBeenCalledTimes(numsArray.length);
+    });
+
+    it('iterates through an array and gets result', () => {
+      const numsArray = [1, 2, 3, 4];
+
+      const sum = reducer(numsArray, (acc, item) => acc + item, 0);
+
+      expect(sum).toEqual(10);
+    });
+  });
 });
