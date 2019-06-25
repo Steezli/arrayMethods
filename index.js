@@ -1,13 +1,26 @@
 function map(array, callback) {
-  const newArray = [];
+  const mappedArray = [];
   let i = 0;
   for(i; i < array.length; i++) {
-    newArray[i] = callback(array[i]);
+    mappedArray[i] = callback(array[i]);
   }
-  return newArray;
+  return mappedArray;
 }
 
-const array = [4, 6, 10];
-console.log(map(array, number => number * number))
+function filter(array, callback) {
+  const filteredArray = [];
+  let i = 0;
+  for(i; i < array.length; i++) {
+    if(callback[i]) {
+      filteredArray[i] = (array[i]);
+    }
+  }
+  return filteredArray;
+}
 
-module.exports = { map };
+const numsArray = [4, 6, 10];
+const wordArray = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+console.log(map(numsArray, number => number * number));
+console.log(wordArray.filter(word => word.length < 6));
+
+module.exports = { map, filter };
