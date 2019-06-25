@@ -7,4 +7,4 @@ describe('array method test', () => {
     const sqaured = map(array, number => number * number);
     expect(sqaured).toEqual([16, 36, 100]);
   });
-}); 
+}) 
