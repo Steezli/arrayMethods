@@ -3,15 +3,26 @@ const { map, filter } = require('./index');
 
 describe('array methods', () => {
   it('map and return newArray ', () => {
-    const numsArray = [4, 6, 10];
+    const numsArray = [1, 2, 4, 6, 10];
     const sqaured = map(numsArray, number => number * number);
-    expect(sqaured).toEqual([16, 36, 100]);
+    expect(sqaured).toEqual([1, 4, 16, 36, 100]);
   });
 
   it('filter and return an array ', () => {
-    const wordArray = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-    const filtered = filter(wordArray, word => word.length < 6);
+    const numsArray = [1, 2, 4, 6, 10];
+    const filtered = filter(numsArray, num => num.length < 6);
     expect(filtered).toEqual(expect.any(Array));
   });
 
+  it('filter and return newArray ', () => {
+    const numsArray = [1, 2, 3, 4];
+    const evens = filter(numsArray, num => num % 2 === 0);
+    expect(evens).toEqual([2, 4]);
+  });
+
+  it('filter odd numbers out ', () => {
+    const numsArray = [1, 2, 3, 4];
+    const odds = filter(numsArray, num => num % 3 === 0);
+    expect(odds).toEqual([1, 3]);
+  });
 });

@@ -11,16 +11,15 @@ function filter(array, callback) {
   const filteredArray = [];
   let i = 0;
   for(i; i < array.length; i++) {
-    if(callback[i]) {
-      filteredArray[i] = (array[i]);
+    if(callback(Array[i])) {
+      filteredArray[filteredArray.length] = array[i];
     }
   }
   return filteredArray;
 }
 
-const numsArray = [4, 6, 10];
-const wordArray = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const numsArray = [1, 2, 4, 6, 10];
 console.log(map(numsArray, number => number * number));
-console.log(wordArray.filter(word => word.length < 6));
+console.log(filter(numsArray, num => num === 2));
 
 module.exports = { map, filter };
